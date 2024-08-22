@@ -5,16 +5,5 @@ stages:
 test:
   stage: test
   image: golang:1.17
-  script: 
-   - go test .
-
-build:
-  stage: build
-  variables:
-    DOCKER_TLS_CERTDIR: ""
-
-  services:
-    - docker:dind
-
   script:
-   - docker build .
+   - go test .
