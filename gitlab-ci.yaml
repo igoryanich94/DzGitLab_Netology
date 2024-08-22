@@ -10,6 +10,11 @@ test:
 
 build:
   stage: build
-  image: docker:latest
+  variables:
+    DOCKER_TLS_CERTDIR: ""
+
+  services:
+    - docker:dind
+
   script:
    - docker build .
